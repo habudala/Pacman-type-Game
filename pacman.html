@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pacman Type Game</title>
+	<style type="text/css">
+
+	canvas {width:750px;
+			margin:auto;
+			height:500px;
+			margin-top:50px;
+			background-color:green;}
+	</style>
+	<script type="text/javascript"> 
+	function draw() {
+		var x = 0;
+		var y = 0;
+		var myCanvas = document.getElementById("game");
+		var ctx = myCanvas.getContext("2d");
+		// ctx.fillRect(x,y,5,5);
+
+		function keyDet (e) {
+			
+			switch(e.keyCode) {
+				case 38: y-=5; 
+				break;
+				case 40: y+=5;
+				break;
+				case 37: x-=5;
+				break;
+				case 39: x+=5; 
+				break;
+				
+			}
+			
+			ctx.clearRect(0,0,750,500);
+			ctx.fillRect(x,y,5,5);
+		}
+
+		
+
+		
+		window.addEventListener("keydown",keyDet, false);
+		// window.addEventListener("keyup", keyDel, false);
+
+		
+
+
+	}
+	window.onload = draw;
+	window.setInterval(draw,2000);
+	</script>
+</head>
+<body>
+	<canvas id="game"></canvas>
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+</script>
+</body>
+</html>
