@@ -67,17 +67,34 @@
 		function keyDet (e) {
 				
 			 switch(e.keyCode) {
-				case 38: y-=17; 
+
+				case 38: y-=17; //up
 				if (y < 0) {y = 0;}
+				// first labyrinth wall (bottom wall outside)
+			    if ((y < 450)&&(x > 50)&&(x < 600)) {y = 450;} 
+
 				break;
-				case 40: y+=17; 
+
+				case 40: y+=17; //down
 				if (y > 490) {y = 490;}
+				// first labyrinth wall (top wall outside)
+			    if ((y > 40)&&(x > 50)&&(x < 600)) {y = 40;} 
+				
 				break;
-				case 37: x-=17; 
+
+				case 37: x-=17; //left
+				//field constraints
 				if (x < 0) {x = 0}
+				// first labyrinth wall (right wall outside)
+			    if ((y > 45)&&(y < 450)&&(x < 600)) {x = 600;} 
 				break;
-				case 39: x+=17;
+
+				case 39: x+=17;//right
+				//field constraints
 				if (x > 640) {x = 640;}
+				// first labyrinth wall (left wall outside)
+			    if ((y > 45)&&(y < 200)&&(x > 50)) {x = 40;} 
+			    if ((y > 300)&&(y < 450)&&(x > 50)) {x = 40;}
 				break;
 					
 			}
