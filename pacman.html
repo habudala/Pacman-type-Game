@@ -4,16 +4,14 @@
 	<title>Pacman Type Game</title>
 	<style type="text/css">
 
-	canvas {width:650px;
-			margin:auto;
-			height:500px;
+	canvas {margin:auto;
 			margin-top:50px;
 			background-color:green;}
 	</style>
 	
 </head>
 <body>
-	<canvas id="game"></canvas>
+	<canvas id="game" width="650px" height="500px"></canvas>
 
 
 
@@ -21,38 +19,111 @@
 <script type="text/javascript"> 
 	
 	function draw () {
-		
+
 		var x=0;
-		var y=70;
+		var y=250;
 		
 	   	var myCanvas = document.getElementById("game");
 	   	var ctx = myCanvas.getContext("2d");
+	  	ctx.strokeStyle = "black";
+	  	ctx.lineWidth = 5;
 	   	ctx.clearRect(0,0,650,500);
-	   	ctx.fillRect(x,y,5,3);
+	   	ctx.strokeRect(0,0,650,500);
+	   	ctx.fillRect(x,y,10,10);
+
+	   	// maze wall I.
+	   	ctx.beginPath();
+	   	ctx.moveTo(50,200);
+	   	ctx.lineTo(50,50);
+	   	ctx.lineTo(600,50);
+	   	ctx.lineTo(600,450);
+	   	ctx.lineTo(50,450);
+	   	ctx.lineTo(50,300);
+	   	ctx.stroke();
+	   	
+
+	   	// maze wall II.
+	   	ctx.beginPath();
+	   	ctx.moveTo(550,300);
+	   	ctx.lineTo(550,400);
+	   	ctx.lineTo(100,400);
+	   	ctx.lineTo(100,100);
+	   	ctx.lineTo(550,100);
+	   	ctx.lineTo(550,200);
+	    ctx.stroke();
+
+	    // maze wall III.
+	    ctx.beginPath();
+	   	ctx.moveTo(150,200);
+	   	ctx.lineTo(150,150);
+	   	ctx.lineTo(500,150);
+	   	ctx.lineTo(500,350);
+	   	ctx.lineTo(150,350);
+	   	ctx.lineTo(150,300);
+	    ctx.stroke();
 	   		
 
    		 
 		function keyDet (e) {
 				
 			 switch(e.keyCode) {
-				case 38: y-=7; if (y < 0) {y = 0;};
+				case 38: y-=17; 
+				if (y < 0) {y = 0;}
 				break;
-				case 40: y+=7; if (y > 145) {y = 145;};
+				case 40: y+=17; 
+				if (y > 490) {y = 490;}
 				break;
-				case 37: x-=7; if (x < 0) {x = 0};
+				case 37: x-=17; 
+				if (x < 0) {x = 0}
 				break;
-				case 39: x+=7;if (x > 295) {x = 295;};
+				case 39: x+=17;
+				if (x > 640) {x = 640;}
 				break;
 					
 			}
 			ctx.clearRect(0,0,650,500);
-			ctx.fillRect(x,y,5,3);
+			ctx.strokeRect(0,0,650,500);
+			ctx.fillRect(x,y,10,10);
+
+			// maze wall I.
+	   	ctx.beginPath();
+	   	ctx.moveTo(50,200);
+	   	ctx.lineTo(50,50);
+	   	ctx.lineTo(600,50);
+	   	ctx.lineTo(600,450);
+	   	ctx.lineTo(50,450);
+	   	ctx.lineTo(50,300);
+	   	ctx.stroke();
+	   	
+
+	   	// maze wall II.
+	   	ctx.beginPath();
+	   	ctx.moveTo(550,300);
+	   	ctx.lineTo(550,400);
+	   	ctx.lineTo(100,400);
+	   	ctx.lineTo(100,100);
+	   	ctx.lineTo(550,100);
+	   	ctx.lineTo(550,200);
+	    ctx.stroke();
+
+	    // maze wall III.
+	    ctx.beginPath();
+	   	ctx.moveTo(150,200);
+	   	ctx.lineTo(150,150);
+	   	ctx.lineTo(500,150);
+	   	ctx.lineTo(500,350);
+	   	ctx.lineTo(150,350);
+	   	ctx.lineTo(150,300);
+	    ctx.stroke();
 		}
 
 		window.addEventListener("keydown",keyDet, false);
+		 // var looptimer = function() {setInterval(draw,100);}
+		 // looptimer();
 	}
-	var looptimer = function() {setInterval(draw,100);}
+	
 	window.onload = draw;
+
 	</script>
 </body>
 </html>
