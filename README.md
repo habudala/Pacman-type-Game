@@ -5,7 +5,7 @@
 #### Some element's I would like this project to have:
 
 #### - a maze that restricts player and enemy movements
-#### - keyboard control for player
+#### - keyboard control for player: check
 #### - wins/deaths counter
 #### - Adding images (as opposed to the initial rectangles) for heroes and enemies
 
