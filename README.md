@@ -4,8 +4,9 @@
 
 #### Some element's I would like this project to have:
 
+#### - Restrict player movements so they cannot leave the field : check!
 #### - a maze that restricts player and enemy movements
-#### - keyboard control for player: check
+#### - keyboard control for player: check!
 #### - wins/deaths counter
 #### - Adding images (as opposed to the initial rectangles) for heroes and enemies
 
