@@ -80,6 +80,8 @@
 				/////////////////////////middle maze wall////////////////////////////////////
 				if ((y < 400)&&(y > 382)&&(x > 100)&&(x < 550)) {y = 400;} // middle labyrinth (bottom wall outside)
 				if((y < 100)&&(y > 80)&&(x > 100)&&(x < 550)) {y = 100;} // middle labyrinth (top wall inside)
+				/////////////////////////inner maze wall////////////////////////////////////
+				if ((y < 350)&&(y > 330)&&(x > 140)&&(x < 500)) {y = 350;} // inner labyrinth (bottom wall outside)
 				break;
 
 
@@ -93,6 +95,8 @@
 			    /////////////////////////middle maze wall////////////////////////////////////
 			    if ((y > 90)&&(y < 110)&&(x > 100)&&(x < 550)) {y = 90;} // middle labyrinth (top wall outside)
 			    if((y < 409)&&(y > 390)&&(x > 100)&&(x < 550)) {y = 390;} // middle labyrinth (bottom wall inside)
+			    /////////////////////////inner maze wall////////////////////////////////////
+			    if ((y > 140)&&(y < 160)&&(x > 140)&&(x < 500)) {y = 140;} // inner labyrinth (top wall outside)
 				break;
 
 
@@ -108,6 +112,8 @@
 			    if ((y > 100)&&(y < 200)&&(x > 530)&&(x < 550)) {x = 550;} // middle labyrinth (right wall outside top)
 			    if ((y > 300)&&(y < 400)&&(x > 530)&&(x < 550)) {x = 550;}// middle labyrinth (right wall outside bottom)
 			    if ((y > 90)&&(y < 400)&&(x > 80)&&(x < 100)) {x = 100;} // middle labyrinth (left wall inside)
+			    /////////////////////////inner maze wall////////////////////////////////////
+			    if ((y > 140)&&(y < 350)&&(x < 500)&&(x > 480)) {x = 500;} // first labyrinth (right wall outside)
 				break;     
 
 
@@ -123,7 +129,7 @@
 			    if ((y > 90)&&(y < 400)&&(x > 90)&&(x < 110)) {x = 90;} // middle labyrinth (left wall outside)
 			    if ((y > 100)&&(y < 200)&&(x < 560)&&(x > 540)) {x = 540;} // middle labyrinth (right wall inside top)
 			    if ((y > 300)&&(y < 400)&&(x < 560)&&(x > 540)) {x = 540;}// middle labyrinth (right wall inside bottom)
-
+			    /////////////////////////inner maze wall////////////////////////////////////
 				break;
 					
 			}
