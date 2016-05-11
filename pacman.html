@@ -11,10 +11,8 @@
 	
 </head>
 <body>
+
 	<canvas id="game" width="650px" height="500px"></canvas>
-
-
-
 
 <script type="text/javascript"> 
 	
@@ -68,33 +66,45 @@
 				
 			 switch(e.keyCode) {
 
-				case 38: y-=17; //up
-				if (y < 0) {y = 0;}
-				// first labyrinth wall (bottom wall outside)
-			    if ((y < 450)&&(x > 50)&&(x < 600)) {y = 450;} 
-
+				case 38: y-=17; //up move
+				// field constraints
+				if (y < 0) {y = 0;} // upper main wall 
+				// outermost maze wall
+			    if ((y < 450)&&(y > 430)&&(x > 50)&&(x < 600)) {y = 450;} // first labyrinth (bottom wall outside)
+				if((y < 45)&&(y > 30)&&(x > 50)&&(x < 600)) {y = 50;} // first labyrinth (top wall inside)
 				break;
 
-				case 40: y+=17; //down
-				if (y > 490) {y = 490;}
-				// first labyrinth wall (top wall outside)
-			    if ((y > 40)&&(x > 50)&&(x < 600)) {y = 40;} 
-				
+
+
+				case 40: y+=17; //down move
+				// field constraints
+				if (y > 490) {y = 490;} // bottom main wall
+				// outermost maze wall
+			    if ((y > 40)&&(y < 60)&&(x > 50)&&(x < 600)) {y = 40;} // first labyrinth (top wall outside)
+			    if((y < 460)&&(y > 440)&&(x > 50)&&(x < 595)) {y = 440;} // first labyrinth (bottom wall inside)
 				break;
 
-				case 37: x-=17; //left
+
+
+				case 37: x-=17; //left move
 				//field constraints
-				if (x < 0) {x = 0}
-				// first labyrinth wall (right wall outside)
-			    if ((y > 45)&&(y < 450)&&(x < 600)) {x = 600;} 
+				if (x < 0) {x = 0}//right main wall
+				// outermost maze wall
+			    if ((y > 45)&&(y < 450)&&(x < 600)&&(x > 580)) {x = 600;} // first labyrinth (right wall outside)
+			    if ((y > 45)&&(y < 200)&&(x < 50)&&(x > 32)) {x = 50;} // first labyrinth (left wall outside top)
+			    if ((y > 300)&&(y < 450)&&(x < 50)&&(x > 32)) {x = 50;}// first labyrinth (left wall outside bottom)
+
 				break;
 
-				case 39: x+=17;//right
-				//field constraints
-				if (x > 640) {x = 640;}
-				// first labyrinth wall (left wall outside)
-			    if ((y > 45)&&(y < 200)&&(x > 50)) {x = 40;} 
-			    if ((y > 300)&&(y < 450)&&(x > 50)) {x = 40;}
+
+
+				case 39: x+=17;//right move
+				// field constraints
+				if (x > 640) {x = 640;}//left main wall
+				// outermost maze wall
+			    if ((y > 45)&&(y < 200)&&(x > 40)&&(x < 60)) {x = 40;} // first labyrinth (left wall outside top)
+			    if ((y > 300)&&(y < 450)&&(x > 40)&&(x < 60)) {x = 40;}// first labyrinth (left wall outside bottom)
+			    if ((y > 45)&&(y < 450)&&(x < 610)&&(x > 590)) {x = 590;} // first labyrinth (right wall inside)
 				break;
 					
 			}
