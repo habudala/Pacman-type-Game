@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pacman Type Game</title>
+	<title>PacMan Type Game</title>
 	<style type="text/css">
 
 	canvas {
 			margin-top:50px;
-			background-color:green;}
+			background-color:green;
+			}
 
 	#cont {margin:auto;
 			width:650px; 
-			
 			}
 	</style>
 	
@@ -25,14 +25,15 @@
 
 		var x=0;
 		var y=250;
-		
 	   	var myCanvas = document.getElementById("game");
 	   	var ctx = myCanvas.getContext("2d");
+
 	  	ctx.strokeStyle = "black";
 	  	ctx.lineWidth = 5;
 	   	ctx.clearRect(0,0,650,500);
 	   	ctx.strokeRect(0,0,650,500);
 	   	ctx.fillRect(x,y,10,10);
+
 
 	   	// maze wall I.
 	   	ctx.beginPath();
@@ -55,6 +56,7 @@
 	   	ctx.lineTo(550,200);
 	    ctx.stroke();
 
+
 	    // maze wall III.
 	    ctx.beginPath();
 	   	ctx.moveTo(150,200);
@@ -65,108 +67,124 @@
 	   	ctx.lineTo(150,300);
 	    ctx.stroke();
 	   		
-
-   		 
+	 
 		function keyDet (e) {
 				
 			 switch(e.keyCode) {
 
 				case 38: y-=17; //up move
-				// field constraints
+				
+			//////////////////////////////field constraints/////////////////////////////////
 				if (y < 0) {y = 0;} // upper main wall 
-				///////////////////////// outermost maze wall//////////////////////////////////
+			///////////////////////// outermost maze wall//////////////////////////////////
 			    if ((y < 450)&&(y > 430)&&(x > 50)&&(x < 600)) {y = 450;} // first labyrinth (bottom wall outside)
 				if((y < 45)&&(y > 28)&&(x > 45)&&(x < 600)) {y = 50;} // first labyrinth (top wall inside)
-				/////////////////////////middle maze wall////////////////////////////////////
+			/////////////////////////middle maze wall////////////////////////////////////
 				if ((y < 400)&&(y > 382)&&(x > 100)&&(x < 550)) {y = 400;} // middle labyrinth (bottom wall outside)
 				if((y < 100)&&(y > 80)&&(x > 100)&&(x < 550)) {y = 100;} // middle labyrinth (top wall inside)
-				/////////////////////////inner maze wall////////////////////////////////////
+			/////////////////////////inner maze wall////////////////////////////////////
 				if ((y < 350)&&(y > 330)&&(x > 140)&&(x < 500)) {y = 350;} // inner labyrinth (bottom wall outside)
+				if((y < 150)&&(y > 130)&&(x > 145)&&(x < 500)) {y = 150;} // inner labyrinth (top wall inside)
+
 				break;
 
 
 
 				case 40: y+=17; //down move
-				// field constraints
+
+			  //////////////////////////////field constraints/////////////////////////////////
 				if (y > 490) {y = 490;} // bottom main wall
-				//////////////////////// outermost maze wall/////////////////////////////////////
+			  //////////////////////// outermost maze wall/////////////////////////////////////
 			    if ((y > 40)&&(y < 60)&&(x > 50)&&(x < 600)) {y = 40;} // first labyrinth (top wall outside)
 			    if((y < 460)&&(y > 440)&&(x > 45)&&(x < 595)) {y = 440;} // first labyrinth (bottom wall inside)
-			    /////////////////////////middle maze wall////////////////////////////////////
+			  /////////////////////////middle maze wall////////////////////////////////////
 			    if ((y > 90)&&(y < 110)&&(x > 100)&&(x < 550)) {y = 90;} // middle labyrinth (top wall outside)
 			    if((y < 409)&&(y > 390)&&(x > 100)&&(x < 550)) {y = 390;} // middle labyrinth (bottom wall inside)
-			    /////////////////////////inner maze wall////////////////////////////////////
+			  /////////////////////////inner maze wall////////////////////////////////////
 			    if ((y > 140)&&(y < 160)&&(x > 140)&&(x < 500)) {y = 140;} // inner labyrinth (top wall outside)
+			    if((y < 360)&&(y > 340)&&(x > 145)&&(x < 500)) {y = 340;} // inner labyrinth (bottom wall inside)
 				break;
 
 
 
 				case 37: x-=17; //left move
-				//field constraints
+
+			  //////////////////////////////field constraints/////////////////////////////////
 				if (x < 0) {x = 0}//right main wall
-				//////////////////////// outermost maze wall/////////////////////////////////////
+			  //////////////////////// outermost maze wall/////////////////////////////////////
 			    if ((y > 45)&&(y < 450)&&(x < 600)&&(x > 580)) {x = 600;} // first labyrinth (right wall outside)
-			    if ((y > 45)&&(y < 200)&&(x < 50)&&(x > 32)) {x = 50;} // first labyrinth (left wall outside top)
-			    if ((y > 300)&&(y < 450)&&(x < 50)&&(x > 32)) {x = 50;}// first labyrinth (left wall outside bottom)
-			    /////////////////////////middle maze wall////////////////////////////////////
+			    if ((y > 45)&&(y < 200)&&(x < 50)&&(x > 32)) {x = 50;} // first labyrinth (left wall inside top)
+			    if ((y > 300)&&(y < 450)&&(x < 50)&&(x > 32)) {x = 50;}// first labyrinth (left wall inside bottom)
+			  /////////////////////////middle maze wall////////////////////////////////////
 			    if ((y > 100)&&(y < 200)&&(x > 530)&&(x < 550)) {x = 550;} // middle labyrinth (right wall outside top)
 			    if ((y > 300)&&(y < 400)&&(x > 530)&&(x < 550)) {x = 550;}// middle labyrinth (right wall outside bottom)
 			    if ((y > 90)&&(y < 400)&&(x > 80)&&(x < 100)) {x = 100;} // middle labyrinth (left wall inside)
-			    /////////////////////////inner maze wall////////////////////////////////////
+			  /////////////////////////inner maze wall////////////////////////////////////
 			    if ((y > 140)&&(y < 350)&&(x < 500)&&(x > 480)) {x = 500;} // first labyrinth (right wall outside)
+			    if ((y > 145)&&(y < 195)&&(x < 150)&&(x > 130)) {x = 150;} // inner labyrinth (left wall inside top)
+			    if ((y > 290)&&(y < 350)&&(x < 150)&&(x > 130)) {x = 150;}// inner labyrinth (left wall inside bottom)
 				break;     
 
 
 
 				case 39: x+=17;//right move
-				// field constraints
+
+			  //////////////////////////////field constraints/////////////////////////////////
 				if (x > 640) {x = 640;}//left main wall
-				//////////////////////// outermost maze wall/////////////////////////////////////
+			  //////////////////////// outermost maze wall/////////////////////////////////////
 			    if ((y > 45)&&(y < 200)&&(x > 40)&&(x < 60)) {x = 40;} // first labyrinth (left wall outside top)
 			    if ((y > 300)&&(y < 450)&&(x > 40)&&(x < 60)) {x = 40;}// first labyrinth (left wall outside bottom)
 			    if ((y > 45)&&(y < 450)&&(x < 610)&&(x > 590)) {x = 590;} // first labyrinth (right wall inside)
-			    /////////////////////////middle maze wall////////////////////////////////////
+			  /////////////////////////middle maze wall////////////////////////////////////
 			    if ((y > 90)&&(y < 400)&&(x > 90)&&(x < 110)) {x = 90;} // middle labyrinth (left wall outside)
 			    if ((y > 100)&&(y < 200)&&(x < 560)&&(x > 540)) {x = 540;} // middle labyrinth (right wall inside top)
 			    if ((y > 300)&&(y < 400)&&(x < 560)&&(x > 540)) {x = 540;}// middle labyrinth (right wall inside bottom)
-			    /////////////////////////inner maze wall////////////////////////////////////
+			  /////////////////////////inner maze wall////////////////////////////////////
+			    if ((y > 145)&&(y < 195)&&(x > 140)&&(x < 160)) {x = 140;} // inner labyrinth (left wall outside top)
+			    if ((y > 290)&&(y < 350)&&(x > 140)&&(x < 160)) {x = 140;}// inner labyrinth (left wall outside bottom)
+			    if ((y > 145)&&(y < 350)&&(x < 510)&&(x > 490)) {x = 490;} // first labyrinth (right wall inside)
 				break;
+
 					
 			}
+
+
 			ctx.clearRect(0,0,650,500);
 			ctx.strokeRect(0,0,650,500);
 			ctx.fillRect(x,y,10,10);
 
-			// maze wall I.
-	   	ctx.beginPath();
-	   	ctx.moveTo(50,200);
-	   	ctx.lineTo(50,50);
-	   	ctx.lineTo(600,50);
-	   	ctx.lineTo(600,450);
-	   	ctx.lineTo(50,450);
-	   	ctx.lineTo(50,300);
-	   	ctx.stroke();
+				// maze wall I.
+		   	ctx.beginPath();
+		   	ctx.moveTo(50,200);
+		   	ctx.lineTo(50,50);
+		   	ctx.lineTo(600,50);
+		   	ctx.lineTo(600,450);
+		   	ctx.lineTo(50,450);
+		   	ctx.lineTo(50,300);
+		   	ctx.stroke();
 	   	
 
-	   	// maze wall II.
-	   	ctx.beginPath();
-	   	ctx.moveTo(550,300);
-	   	ctx.lineTo(550,400);
-	   	ctx.lineTo(100,400);
-	   	ctx.lineTo(100,100);
-	   	ctx.lineTo(550,100);
-	   	ctx.lineTo(550,200);
-	    ctx.stroke();
+		   	// maze wall II.
+		   	ctx.beginPath();
+		   	ctx.moveTo(550,300);
+		   	ctx.lineTo(550,400);
+		   	ctx.lineTo(100,400);
+		   	ctx.lineTo(100,100);
+		   	ctx.lineTo(550,100);
+		   	ctx.lineTo(550,200);
+		    ctx.stroke();
 
-	    // maze wall III.
-	    ctx.beginPath();
-	   	ctx.moveTo(150,200);
-	   	ctx.lineTo(150,150);
-	   	ctx.lineTo(500,150);
-	   	ctx.lineTo(500,350);
-	   	ctx.lineTo(150,350);
-	   	ctx.lineTo(150,300);
-	    ctx.stroke();
+
+		    // maze wall III.
+		    ctx.beginPath();
+		   	ctx.moveTo(150,200);
+		   	ctx.lineTo(150,150);
+		   	ctx.lineTo(500,150);
+		   	ctx.lineTo(500,350);
+		   	ctx.lineTo(150,350);
+		   	ctx.lineTo(150,300);
+		    ctx.stroke();
+
 		}
 
 		window.addEventListener("keydown",keyDet, false);
