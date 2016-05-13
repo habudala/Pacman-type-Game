@@ -5,7 +5,7 @@
 #### Some element's I would like this project to have:
 
 #### - Restrict player movements so they cannot leave the field : check!
-#### - a maze that restricts player and enemy movements
+#### - a maze that restricts player and enemy movements : check!!!! (this was more time-consuming than I initially predicted, because of the inconsistencies of canvas, but it's finally done, and the good news is that I can utilize the same bit of code lines for the foe move restrictions!)
 #### - keyboard control for player: check!
 #### - wins/deaths counter
 #### - Adding images (as opposed to the initial rectangles) for heroes and enemies
