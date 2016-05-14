@@ -9,5 +9,5 @@
 #### - keyboard control for player: check!
 #### - wins/deaths counter
 #### - Adding images (as opposed to the initial rectangles) for heroes and enemies
-
+#### - update images to sprites instead! Animate a bit!
 
